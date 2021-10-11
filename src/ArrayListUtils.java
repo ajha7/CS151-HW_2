@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-
+import java.util.ArrayList; 
 /**
  * Class that provides helper functions for ArrayList
  */
@@ -13,11 +12,7 @@ public class ArrayListUtils {
      */
     public static int sum(ArrayList<Integer> arr) {
         // TODO: implement this method on a separate branch. Should return sum of all elements in the array list
-        int sum = 0; 
-        for (Integer i: arr)
-            sum += i;
-        
-        return sum;
+        return 0;
     }
 
     /**
@@ -30,4 +25,6 @@ public class ArrayListUtils {
         // TODO: implement this method on a separate branch. Should return the average of elements in the array list
         return 0;
     }
+
+    
 }

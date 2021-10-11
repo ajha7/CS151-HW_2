@@ -1,4 +1,11 @@
-import java.util.ArrayList; 
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import org.junit.*;
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
 /**
  * Class that provides helper functions for ArrayList
  */
@@ -26,5 +33,37 @@ public class ArrayListUtils {
         return 0;
     }
 
-    
+    @Test 
+    public void testSum() {
+        //all positive
+        ArrayList<Integer> arr = new ArrayList<Integer>(Arrays.asList(1, 2, 3));
+        int testSum = sum(arr);
+        assertEquals(testSum, 6);
+       
+        //all negative
+        arr = new ArrayList<Integer>(Arrays.asList(-1, -2, -3));
+        testSum = sum(arr);
+        assertEquals(testSum, -6);
+
+        //mix negative positive
+        arr = new ArrayList<Integer>(Arrays.asList(-1, -2, 3));
+        testSum = sum(arr);
+        assertEquals(testSum, 0);
+        
+        //empty array
+        arr = new ArrayList<Integer>();
+        testSum = sum(arr);
+        
+    }
+
+    public static void main(String[] args) {
+        Result result = JUnitCore.runClasses(ArrayListUtils.class);
+		
+        System.out.println("Failures: \n");
+        for (Failure failure : result.getFailures()) {
+            System.out.println(failure.toString());
+        }
+        System.out.println("Result: \n");
+        System.out.println(result.wasSuccessful());
+    }
 }

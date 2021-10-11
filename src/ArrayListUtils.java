@@ -2,13 +2,10 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import org.junit.*;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
-
-
 /**
  * Class that provides helper functions for ArrayList
  */
@@ -22,11 +19,7 @@ public class ArrayListUtils {
      */
     public static int sum(ArrayList<Integer> arr) {
         // TODO: implement this method on a separate branch. Should return sum of all elements in the array list
-        int sum = 0; 
-        for (Integer i: arr)
-            sum += i;
-        
-        return sum;
+        return 0;
     }
 
     /**
@@ -77,5 +70,28 @@ public class ArrayListUtils {
         }
         System.out.println("Result: \n");
         System.out.println(result.wasSuccessful());
+    }
+
+    @Test 
+    public void testSum() {
+        //all positive
+        ArrayList<Integer> arr = new ArrayList<Integer>(Arrays.asList(1, 2, 3));
+        int testSum = sum(arr);
+        assertEquals(testSum, 6);
+       
+        //all negative
+        arr = new ArrayList<Integer>(Arrays.asList(-1, -2, -3));
+        testSum = sum(arr);
+        assertEquals(testSum, -6);
+
+        //mix negative positive
+        arr = new ArrayList<Integer>(Arrays.asList(-1, -2, 3));
+        testSum = sum(arr);
+        assertEquals(testSum, 0);
+        
+        //empty array
+        arr = new ArrayList<Integer>();
+        testSum = sum(arr);
+        
     }
 }

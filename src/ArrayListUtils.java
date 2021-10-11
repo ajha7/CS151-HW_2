@@ -2,8 +2,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
-
 import org.junit.*;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
@@ -59,7 +57,7 @@ public class ArrayListUtils {
         //empty array
         arr = new ArrayList<Integer>();
         testSum = sum(arr);
-        assertEquals(testSum, 0);
+        
     }
 
     public static void main(String[] args) {

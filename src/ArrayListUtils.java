@@ -1,7 +1,12 @@
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import jdk.jfr.Timestamp;
+import org.junit.*;
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
 
 
 /**
@@ -44,21 +49,33 @@ public class ArrayListUtils {
     public void testMean() {
         //all positive
         ArrayList<Integer> arr = new ArrayList<Integer>(Arrays.asList(1, 2, 3));
-        int testSum = sum(arr);
-        assertEquals(testSum, 6);
+        int testMean = mean(arr);
+        assertEquals(testMean, 2);
        
         //all negative
         arr = new ArrayList<Integer>(Arrays.asList(-1, -2, -3));
-        testSum = sum(arr);
-        assertEquals(testSum, -6);
+        testMean = mean(arr);
+        assertEquals(testMean, -2);
 
         //mix negative positive
         arr = new ArrayList<Integer>(Arrays.asList(-1, -2, 3));
-        testSum = sum(arr);
-        assertEquals(testSum, 0);
+        testMean = mean(arr);
+        assertEquals(testMean, 0);
         
         //empty array
         arr = new ArrayList<Integer>();
-        testSum = sum(arr);
+        testMean = mean(arr);
+        assertEquals(testMean, 0);
+    }
+
+    public static void main(String[] args) {
+        Result result = JUnitCore.runClasses(ArrayListUtils.class);
+		
+        System.out.println("Failures: \n");
+        for (Failure failure : result.getFailures()) {
+            System.out.println(failure.toString());
+        }
+        System.out.println("Result: \n");
+        System.out.println(result.wasSuccessful());
     }
 }

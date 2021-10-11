@@ -1,4 +1,8 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+
+import jdk.jfr.Timestamp;
+
 
 /**
  * Class that provides helper functions for ArrayList
@@ -28,6 +32,33 @@ public class ArrayListUtils {
      */
     public static int mean(ArrayList<Integer> arr) {
         // TODO: implement this method on a separate branch. Should return the average of elements in the array list
-        return 0;
+        int sum = 0;
+        for (Integer i: arr) {
+            sum += i;
+        }
+        int mean = (arr.size() != 0) ? (sum / arr.size()): 0;
+        return mean;
+    }
+
+    @Test
+    public void testMean() {
+        //all positive
+        ArrayList<Integer> arr = new ArrayList<Integer>(Arrays.asList(1, 2, 3));
+        int testSum = sum(arr);
+        assertEquals(testSum, 6);
+       
+        //all negative
+        arr = new ArrayList<Integer>(Arrays.asList(-1, -2, -3));
+        testSum = sum(arr);
+        assertEquals(testSum, -6);
+
+        //mix negative positive
+        arr = new ArrayList<Integer>(Arrays.asList(-1, -2, 3));
+        testSum = sum(arr);
+        assertEquals(testSum, 0);
+        
+        //empty array
+        arr = new ArrayList<Integer>();
+        testSum = sum(arr);
     }
 }

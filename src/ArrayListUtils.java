@@ -52,8 +52,10 @@ public class ArrayListUtils {
         
         //empty array
         arr = new ArrayList<Integer>();
+        System.out.println("IN UNIT TEST");
+        System.out.println(arr.toString());
         testSum = sum(arr);
-        
+        assertEquals(testSum, 0);
     }
 
     public static void main(String[] args) {

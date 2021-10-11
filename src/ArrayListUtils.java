@@ -19,11 +19,7 @@ public class ArrayListUtils {
      */
     public static int sum(ArrayList<Integer> arr) {
         // TODO: implement this method on a separate branch. Should return sum of all elements in the array list
-        int sum = 0; 
-        for (Integer i: arr)
-            sum += i;
-        
-        return sum;
+        return 0;
     }
 
     /**

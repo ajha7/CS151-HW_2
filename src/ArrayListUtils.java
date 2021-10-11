@@ -19,7 +19,11 @@ public class ArrayListUtils {
      */
     public static int sum(ArrayList<Integer> arr) {
         // TODO: implement this method on a separate branch. Should return sum of all elements in the array list
-        return 0;
+        int sum = 0;
+        for (Integer i: arr) {
+            sum += i;
+        }
+        return sum;
     }
 
     /**
@@ -57,26 +61,8 @@ public class ArrayListUtils {
         
         //empty array
         arr = new ArrayList<Integer>();
-<<<<<<< HEAD
-        System.out.println("IN UNIT TEST");
-        System.out.println(arr.toString());
-        testSum = sum(arr);
-        assertEquals(testSum, 0);
-=======
         testMean = mean(arr);
         assertEquals(testMean, 0);
->>>>>>> b077e3edb57d55ef3a537f3f822b137fdfa521fa
-    }
-
-    public static void main(String[] args) {
-        Result result = JUnitCore.runClasses(ArrayListUtils.class);
-		
-        System.out.println("Failures: \n");
-        for (Failure failure : result.getFailures()) {
-            System.out.println(failure.toString());
-        }
-        System.out.println("Result: \n");
-        System.out.println(result.wasSuccessful());
     }
 
     @Test 
@@ -100,5 +86,16 @@ public class ArrayListUtils {
         arr = new ArrayList<Integer>();
         testSum = sum(arr);
         
+    }
+
+    public static void main(String[] args) {
+        Result result = JUnitCore.runClasses(ArrayListUtils.class);
+		
+        System.out.println("Failures: \n");
+        for (Failure failure : result.getFailures()) {
+            System.out.println(failure.toString());
+        }
+        System.out.println("Result: \n");
+        System.out.println(result.wasSuccessful());
     }
 }

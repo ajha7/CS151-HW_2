@@ -30,7 +30,53 @@ public class ArrayListUtils {
      */
     public static int mean(ArrayList<Integer> arr) {
         // TODO: implement this method on a separate branch. Should return the average of elements in the array list
-        return 0;
+        int sum = 0;
+        for (Integer i: arr) {
+            sum += i;
+        }
+        int mean = (arr.size() != 0) ? (sum / arr.size()): 0;
+        return mean;
+    }
+
+    @Test
+    public void testMean() {
+        //all positive
+        ArrayList<Integer> arr = new ArrayList<Integer>(Arrays.asList(1, 2, 3));
+        int testMean = mean(arr);
+        assertEquals(testMean, 2);
+       
+        //all negative
+        arr = new ArrayList<Integer>(Arrays.asList(-1, -2, -3));
+        testMean = mean(arr);
+        assertEquals(testMean, -2);
+
+        //mix negative positive
+        arr = new ArrayList<Integer>(Arrays.asList(-1, -2, 3));
+        testMean = mean(arr);
+        assertEquals(testMean, 0);
+        
+        //empty array
+        arr = new ArrayList<Integer>();
+<<<<<<< HEAD
+        System.out.println("IN UNIT TEST");
+        System.out.println(arr.toString());
+        testSum = sum(arr);
+        assertEquals(testSum, 0);
+=======
+        testMean = mean(arr);
+        assertEquals(testMean, 0);
+>>>>>>> b077e3edb57d55ef3a537f3f822b137fdfa521fa
+    }
+
+    public static void main(String[] args) {
+        Result result = JUnitCore.runClasses(ArrayListUtils.class);
+		
+        System.out.println("Failures: \n");
+        for (Failure failure : result.getFailures()) {
+            System.out.println(failure.toString());
+        }
+        System.out.println("Result: \n");
+        System.out.println(result.wasSuccessful());
     }
 
     @Test 
@@ -52,20 +98,7 @@ public class ArrayListUtils {
         
         //empty array
         arr = new ArrayList<Integer>();
-        System.out.println("IN UNIT TEST");
-        System.out.println(arr.toString());
         testSum = sum(arr);
-        assertEquals(testSum, 0);
-    }
-
-    public static void main(String[] args) {
-        Result result = JUnitCore.runClasses(ArrayListUtils.class);
-		
-        System.out.println("Failures: \n");
-        for (Failure failure : result.getFailures()) {
-            System.out.println(failure.toString());
-        }
-        System.out.println("Result: \n");
-        System.out.println(result.wasSuccessful());
+        
     }
 }
